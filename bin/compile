@@ -34,7 +34,9 @@ header "Package information: ${PACKAGE_NAME} - ${PACKAGE_PATH}"
 cd "${BUILD_DIR}"
 
 header "Installing Lerna globally :/ ..."
-yarn add --global lerna
+node -v
+npm -v
+npm i -g lerna
 
 header "Installing dependencies (lerna bootstrap)"
 lerna bootstrap --scope="${PACKAGE_NAME}" --include-dependencies 2>&1 | output
