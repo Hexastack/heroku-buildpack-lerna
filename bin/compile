@@ -33,11 +33,14 @@ header "Package information: ${PACKAGE_NAME} - ${PACKAGE_PATH}"
 
 cd "${BUILD_DIR}"
 
+header "Installing Lerna globally :/ ..."
+npm i -g lerna
+
 header "Installing dependencies (lerna bootstrap)"
-./node_modules/.bin/lerna bootstrap --scope="${PACKAGE_NAME}" --include-dependencies 2>&1 | output
+lerna bootstrap --scope="${PACKAGE_NAME}" --include-dependencies 2>&1 | output
 
 header "Building ${PACKAGE_NAME} and its dependencies"
-./node_modules/.bin/lerna run build --scope="${PACKAGE_NAME}" --include-dependencies --stream 2>&1 | output
+lerna run build --scope="${PACKAGE_NAME}" --include-dependencies --stream 2>&1 | output
 
 cd -
 
